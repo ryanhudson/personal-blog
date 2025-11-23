@@ -8,9 +8,9 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="group bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col h-full">
+    <div className="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-md dark:shadow-none">
       <div className="relative h-48 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent z-10 opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-60" />
         <img
           src={project.imageUrl}
           alt={project.title}
@@ -19,10 +19,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </div>
       
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+        <h3 className="text-xl font-bold text-main mb-2 group-hover:text-primary transition-colors">
           {project.title}
         </h3>
-        <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+        <p className="text-muted text-sm leading-relaxed mb-6 flex-grow">
           {project.description}
         </p>
         
@@ -31,20 +31,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="text-xs font-mono px-2 py-1 rounded-md bg-white/5 text-gray-300 border border-white/5"
+                className="text-xs font-mono px-2 py-1 rounded-md bg-background text-muted border border-border"
               >
                 {tech}
               </span>
             ))}
           </div>
           
-          <div className="flex items-center gap-4 pt-4 border-t border-white/5">
+          <div className="flex items-center gap-4 pt-4 border-t border-border">
             {project.repoUrl && (
               <a
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-sm text-muted hover:text-main transition-colors"
               >
                 <Github size={16} />
                 <span>Code</span>
@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-sm text-muted hover:text-main transition-colors"
               >
                 <ExternalLink size={16} />
                 <span>Live Demo</span>

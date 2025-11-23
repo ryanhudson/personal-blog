@@ -44,30 +44,30 @@ const Blog: React.FC = () => {
   return (
     <div className="max-w-3xl mx-auto pt-12 min-h-screen">
       <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-white mb-4">The Archive</h1>
-        <p className="text-gray-400">Thoughts on technology, design, and the future.</p>
+        <h1 className="text-4xl font-bold text-main mb-4">The Archive</h1>
+        <p className="text-muted">Thoughts on technology, design, and the future.</p>
       </div>
 
       {/* Search and Filter */}
       <div className="mb-12 space-y-6">
         <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted" size={20} />
           <input
             type="text"
             placeholder="Search posts..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-primary/50 transition-colors placeholder:text-gray-600"
+            className="w-full bg-card border border-border rounded-xl py-3 pl-12 pr-4 text-main focus:outline-none focus:border-primary/50 transition-colors placeholder:text-muted"
           />
         </div>
 
         <div className="flex flex-wrap justify-center gap-2">
           <button
             onClick={() => setSelectedTag(null)}
-            className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
+            className={`px-3 py-1.5 rounded-full text-sm transition-colors border border-transparent ${
               selectedTag === null
-                ? 'bg-white text-black'
-                : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                ? 'bg-main text-background'
+                : 'bg-card text-muted hover:border-border'
             }`}
           >
             All
@@ -76,10 +76,10 @@ const Blog: React.FC = () => {
             <button
               key={tag}
               onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
-              className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
+              className={`px-3 py-1.5 rounded-full text-sm transition-colors border border-transparent ${
                 tag === selectedTag
                   ? 'bg-primary text-white'
-                  : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                  : 'bg-card text-muted hover:border-border'
               }`}
             >
               #{tag}
@@ -93,28 +93,28 @@ const Blog: React.FC = () => {
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (
             <Link key={post.slug} to={`/blog/${post.slug}`} className="group block">
-               <div className="p-6 rounded-2xl bg-transparent hover:bg-white/5 border border-transparent hover:border-white/5 transition-all">
-                <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
+               <div className="p-6 rounded-2xl bg-transparent hover:bg-card border border-transparent hover:border-border transition-all">
+                <div className="flex items-center gap-3 text-xs text-muted mb-3">
                   <span>{post.date}</span>
                   <span className="w-1 h-1 rounded-full bg-gray-700" />
                   <span>{post.readTime}</span>
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                <h2 className="text-2xl font-bold text-main mb-3 group-hover:text-primary transition-colors">
                   {post.title}
                 </h2>
-                <p className="text-gray-400 mb-4">
+                <p className="text-muted mb-4">
                   {post.excerpt}
                 </p>
                 <div className="flex gap-2">
                   {post.tags.map(tag => (
-                    <span key={tag} className="text-xs text-gray-500">#{tag}</span>
+                    <span key={tag} className="text-xs text-muted">#{tag}</span>
                   ))}
                 </div>
               </div>
             </Link>
           ))
         ) : (
-          <div className="text-center text-gray-500 py-20">
+          <div className="text-center text-muted py-20">
             No posts found matching your criteria.
           </div>
         )}

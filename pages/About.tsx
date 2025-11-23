@@ -6,27 +6,27 @@ const About: React.FC = () => {
     <div className="max-w-3xl mx-auto pt-12">
       <div className="flex flex-col md:flex-row gap-12 mb-16 items-start">
         <div className="w-full md:w-1/3">
-          <div className="aspect-square rounded-2xl overflow-hidden border-2 border-white/10 bg-gray-800 relative">
+          <div className="aspect-square rounded-2xl overflow-hidden border-2 border-border bg-surface relative">
              <img src="https://picsum.photos/400/400?grayscale" alt="Profile" className="w-full h-full object-cover" />
           </div>
           
           <div className="mt-6 flex justify-center md:justify-start gap-4">
-             <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+             <button className="p-2 rounded-full bg-card hover:bg-border text-muted hover:text-main transition-colors">
                <Github size={20} />
              </button>
-             <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+             <button className="p-2 rounded-full bg-card hover:bg-border text-muted hover:text-main transition-colors">
                <Twitter size={20} />
              </button>
-             <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+             <button className="p-2 rounded-full bg-card hover:bg-border text-muted hover:text-main transition-colors">
                <Mail size={20} />
              </button>
           </div>
         </div>
         
         <div className="w-full md:w-2/3">
-          <h1 className="text-4xl font-bold text-white mb-6">Hi, I'm [Your Name]</h1>
+          <h1 className="text-4xl font-bold text-main mb-6">Hi, I'm [Your Name]</h1>
           
-          <div className="space-y-6 text-gray-300 leading-relaxed text-lg">
+          <div className="space-y-6 text-muted leading-relaxed text-lg">
             <p>
               I am a Full Stack Developer with a passion for building beautiful, functional, and accessible web applications. I specialize in React, TypeScript, and Node.js.
             </p>
@@ -39,10 +39,10 @@ const About: React.FC = () => {
           </div>
 
           <div className="mt-10">
-            <h2 className="text-xl font-semibold text-white mb-4">Tech Stack</h2>
+            <h2 className="text-xl font-semibold text-main mb-4">Tech Stack</h2>
             <div className="flex flex-wrap gap-3">
               {['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Python', 'Gemini API', 'PostgreSQL', 'Docker'].map(tech => (
-                <span key={tech} className="px-3 py-1.5 rounded bg-white/5 border border-white/5 text-gray-300 text-sm font-mono">
+                <span key={tech} className="px-3 py-1.5 rounded bg-card border border-border text-muted text-sm font-mono">
                   {tech}
                 </span>
               ))}
